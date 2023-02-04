@@ -420,7 +420,6 @@ double  DS50lowmass::LogLikelihood(const std::vector<double>& pars)
         ///////
 
         // Fiducial volume fraction in each channel
-        // numerically (computed with the lowmass code)
         float fiducial[7] = {0.1427*7.0, 0.1427*7.0, 0.1422*7.0, 0.1432*7.0, 0.1430*7.0, 0.1426*7.0, 0.1435*7.0};
 
         float* mig;
@@ -636,7 +635,7 @@ double  DS50lowmass::LogLikelihood(const std::vector<double>& pars)
         normNR = norm_nr[i_rs];
         
         for(i=0;i<dimA;i++) {
-                ysig[i] = exp_factor * (ywimp[i] + (ymig[i]) * normNR);
+                ysig[i] = exp_factor * (ywimp[i] + ymig[i]);
         }
         
         // Rebinning indices
